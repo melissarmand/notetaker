@@ -1,18 +1,5 @@
-{
-    
-        "title":"Note Taker",
-        "text":"Test text",
-        "description": "",
-        "main": "server.js",
-        
-        "scripts": {
-            "tests": "echo \"Error: no test specified\"&& exit 1",
-            "start": "node server.js",
-            "watch": "nodemon server.js"
-        },
-        "author": "",
-        "dependencies": {
-            "express": ""
-        }
-}
 
+{
+    "notes": []
+
+}
