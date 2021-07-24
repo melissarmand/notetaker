@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs');
+
 
 module.exports = (app) => {
     app.get('/notes', (req, res) => {
@@ -10,8 +10,3 @@ module.exports = (app) => {
     });
 };
 
-fs.readFile(__dirname + '/index.html', function(err, data) {
-    if (err) throw err;
-    res.writeHead(200, { 'Content-Type': 'text/html'});
-    res.end(data);
-});
