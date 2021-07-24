@@ -8,3 +8,9 @@ module.exports = (app) => {
         res.sendFile(path.join(__dirname, '../public/index.html'));
     });
 };
+
+fs.readFile(__dirname + '/index.html', function(err, data) {
+    if (err) throw err;
+    res.writeHead(200, { 'Content-Type': 'text/html'});
+    res.end(data);
+});
