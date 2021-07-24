@@ -9,16 +9,18 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 
-require('./assets/js/apiRoutes')(app);
-require('./assets/js/htmlRoutes')(app) //this needs to be the route;
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app) //this needs to be the route;
 
 app.listen(PORT, () => {
     console.log(`App is listening on PORT: ${PORT}`);
 });
 
-fs.readFile(__dirname + './index.html', function(err, data) {
-    if (err) throw err;
-    res.writeHead(200, { 'Content-Type': 'text/html'});
-    res.end(data);
-});
+app.get()
+
+// fs.readFile(__dirname + 'public/index.html', function(err, data) {
+//     if (err) throw err;
+//     res.writeHead(200, { 'Content-Type': 'public/notes.html'});
+//     res.end(data);
+// });
 
