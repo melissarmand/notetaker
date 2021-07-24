@@ -6,6 +6,7 @@ const fs = require('fs');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(express.static('public'));
 
 require('./assets/js/apiRoutes')(app);
 require('./assets/js/htmlRoutes')(app) //this needs to be the route;
