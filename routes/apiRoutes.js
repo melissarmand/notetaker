@@ -1,17 +1,13 @@
 const noteData = require('../data/noteData');
+const noteDb = require('../db/db.json');
 const path = require('path');
 
 module.exports = (app) => {
-    app.get('/api/notes', (req, res) =>  {
-        res.sendFile(path.join(__dirname, '../db/db.json'));
-        });
-    app.post('/api/notes', (req,res) => {
-        // if (noteData.length < 20) {
-        //     noteData.push(req.body);
-        //     res.json(true);
-        // } else {
-            
-        // }
+    app.get('/api/notes', (req, res) => res.json(noteDb));
+    
+    app.post('/api/notes', (req,res) => (noteDb).push(req.body)
+    
+       
         
-    })
+    )
 }
