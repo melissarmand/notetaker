@@ -16,7 +16,7 @@ app.listen(PORT, () => {
     console.log(`App is listening on PORT: ${PORT}`);
 });
 
-app.get()
+//app.get()
 
 // fs.readFile(__dirname + 'public/index.html', function(err, data) {
 //     if (err) throw err;
