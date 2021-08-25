@@ -1,8 +1,5 @@
-const noteArray = [
-    {
-        noteTitle: 'Finish homework',
-        noteText: '',
-    },
+const noteData = [
+   
 ];
 
-module.exports = noteArray;
+module.exports = noteData;
