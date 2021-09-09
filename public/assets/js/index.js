@@ -33,13 +33,13 @@ const getNotes = () =>
     },
   });
 
-const saveNote = (note) =>
+const saveNote = (notes) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(note),
+    body: JSON.stringify(notes),
   });
 
 const deleteNote = (id) =>
@@ -155,15 +155,15 @@ const renderNoteList = async (notes) => {
     noteListItems.push(createLi('No saved Notes', false));
   }
 
-  // jsonNotes.forEach((note) => {
-  //   const li = createLi(note.title);
-  //   li.dataset.note = JSON.stringify(note);
+   jsonNotes.forEach((notes) => {
+     const li = createLi(note.title);
+     li.dataset.note = JSON.stringify(notes);
 
-  //   noteListItems.push(li);
-  // });
+     noteListItems.push(li);
+  });
 
   if (window.location.pathname === '/notes') {
-    noteListItems.forEach((note) => noteList[0].append(note));
+    noteListItems.forEach((notes) => noteList[0].append(notes));
   }
 };
 
