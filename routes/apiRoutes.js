@@ -1,5 +1,5 @@
-const noteDb = require('../db/db.json');
 const fs = require('fs');
+const noteDb = JSON.parse(fs.readFileSync('./db/db.json'));
 const path = require('path');
 
 module.exports = (app) => {
@@ -8,16 +8,16 @@ module.exports = (app) => {
     
     app.post('/api/notes', (req,res) => {
         let newNote = req.body;
-        notes.push(newNote);
+        noteDb.push(newNote);
 
         fs.readFile("./db/db.json", (err, data) => {
             let jsonNotes = JSON.stringify(noteDb)
             let notes = JSON.parse(data)
             
-            fs.writeFile("./db/db.json", jsonNotes, (err) => {
+            fs.writeFileSync("./db/db.json", jsonNotes, (err) => {
                 if (err) {
                     return console.log(err)
-                } res.json(notes)
+                } res.json(noteDb)
                 console.log("Success!");
             })   
         
