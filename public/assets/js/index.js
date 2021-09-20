@@ -41,6 +41,7 @@ const saveNote = (notes) =>
     },
     body: JSON.stringify(notes),
   });
+  
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
@@ -72,8 +73,10 @@ const handleNoteSave = () => {
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
+    
   });
 };
+
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
@@ -113,6 +116,7 @@ const handleRenderSaveBtn = () => {
     show(saveNoteBtn);
   }
 };
+
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
@@ -161,10 +165,12 @@ const renderNoteList = async (notes) => {
 
      noteListItems.push(li);
   });
+    
 
   if (window.location.pathname === '/notes') {
     noteListItems.forEach((note) => noteList[0].append(note));
   }
+  
 };
 
 // Gets notes from the db and renders them to the sidebar
