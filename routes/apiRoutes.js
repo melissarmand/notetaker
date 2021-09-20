@@ -10,11 +10,11 @@ module.exports = (app) => {
         let newNote = req.body;
         noteDb.push(newNote);
 
-        fs.readFile("./db/db.json", (err, data) => {
+        fs.readFile("./db/db.json", (err) => {
             let jsonNotes = JSON.stringify(noteDb)
-            let notes = JSON.parse(data)
             
-            fs.writeFileSync("./db/db.json", jsonNotes, (err) => {
+            
+            fs.writeFile("./db/db.json", jsonNotes, (err) => {
                 if (err) {
                     return console.log(err)
                 } res.json(noteDb)
